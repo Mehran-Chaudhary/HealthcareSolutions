@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,12 +26,17 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <h2>Shamim Hospital</h2>
-            <span>Healthcare Excellence</span>
+            <div className="logo-icon">
+              <span className="medical-cross">+</span>
+            </div>
+            <div className="logo-text">
+              <h2>Shamim Hospital</h2>
+              <span>Healthcare Excellence</span>
+            </div>
           </div>
           
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
@@ -36,7 +50,7 @@ const Header = () => {
           </nav>
           
           <div className="header-actions">
-            <a href="tel:+1234567890" className="btn btn-outline">Call Now</a>
+            <a href="tel:+1234567890" className="btn btn-outline">📞 Call Now</a>
             <button className="menu-toggle" onClick={toggleMenu}>
               <span></span>
               <span></span>
