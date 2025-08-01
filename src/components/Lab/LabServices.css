@@ -1,0 +1,258 @@
+.lab-section {
+  background-color: var(--white);
+}
+
+.lab-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  background-color: var(--light-gray);
+  padding: 30px 25px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card .feature-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--dark-gray);
+  font-size: 1rem;
+}
+
+.lab-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.category-filters h3 {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  background-color: var(--light-gray);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: var(--text-dark);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.filter-btn:hover {
+  background-color: #e9ecef;
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-dark);
+}
+
+.filter-icon {
+  font-size: 1.3rem;
+}
+
+.tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.test-card {
+  background-color: var(--white);
+  border: 2px solid #f0f0f0;
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.test-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.test-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.test-name {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  font-weight: 600;
+  flex: 1;
+  margin-right: 15px;
+}
+
+.test-price {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.test-description {
+  color: var(--dark-gray);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.test-info {
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.test-book-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.lab-contact {
+  margin-top: 60px;
+}
+
+.contact-card {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.contact-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.contact-card p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-actions .btn {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.contact-actions .btn:hover {
+  background-color: #f8f9fa;
+}
+
+.contact-actions .btn-outline {
+  background-color: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.contact-actions .btn-outline:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .lab-features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .lab-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .filter-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .tests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .test-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .test-name {
+    margin-right: 0;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
