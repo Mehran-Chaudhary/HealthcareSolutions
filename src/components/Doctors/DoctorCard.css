@@ -1,0 +1,143 @@
+.doctor-card {
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-image {
+  height: 250px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-image .image-placeholder {
+  text-align: center;
+  color: var(--white);
+}
+
+.doctor-image .image-placeholder span {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.doctor-image .image-placeholder p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.doctor-info {
+  padding: 30px;
+}
+
+.doctor-name {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.doctor-specialization {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.doctor-details {
+  margin-bottom: 25px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item strong {
+  color: var(--text-dark);
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.detail-item span {
+  color: var(--dark-gray);
+  text-align: right;
+  flex: 1;
+}
+
+.expertise {
+  margin-bottom: 30px;
+}
+
+.expertise strong {
+  color: var(--text-dark);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.expertise-tag {
+  background-color: var(--light-gray);
+  color: var(--primary-color);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--primary-color);
+}
+
+.book-btn {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .doctor-info {
+    padding: 20px;
+  }
+
+  .doctor-name {
+    font-size: 1.5rem;
+  }
+
+  .doctor-specialization {
+    font-size: 1.1rem;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .detail-item span {
+    text-align: left;
+  }
+}
