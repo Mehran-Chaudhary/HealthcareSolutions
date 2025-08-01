@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f8f9fa;
@@ -16,9 +16,9 @@ body {
 }
 
 :root {
-  --primary-color: #00C853;
-  --primary-dark: #00A843;
-  --primary-light: #4CAF50;
+  --primary-color: #00c853;
+  --primary-dark: #00a843;
+  --primary-light: #4caf50;
   --white: #ffffff;
   --light-gray: #f8f9fa;
   --dark-gray: #6c757d;
@@ -91,15 +91,15 @@ body {
   .container {
     padding: 0 15px;
   }
-  
+
   .section {
     padding: 60px 0;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .btn {
     padding: 10px 25px;
     font-size: 14px;
@@ -142,5 +142,30 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Loading Screen Integration */
+.main-content {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.main-content.hidden {
+  opacity: 0;
+}
+
+.main-content.visible {
+  opacity: 1;
+  animation: fadeInContent 0.8s ease-in-out;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

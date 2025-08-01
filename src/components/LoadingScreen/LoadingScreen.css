@@ -1,0 +1,418 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loading-container {
+  text-align: center;
+  position: relative;
+  max-width: 400px;
+  padding: 40px;
+}
+
+/* Professional Medical Logo */
+.logo-container {
+  position: relative;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.medical-symbol {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.heartbeat-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 60px;
+}
+
+.heartbeat-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.heartbeat-path {
+  fill: none;
+  stroke: #00c853;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.medical-cross-modern {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+}
+
+.cross-h,
+.cross-v {
+  background: #00c853;
+  position: absolute;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 200, 83, 0.3);
+}
+
+.cross-h {
+  width: 30px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cross-v {
+  width: 6px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(0, 200, 83, 0.2);
+  border-radius: 50%;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Professional Typography */
+.brand-container {
+  margin: 30px 0;
+}
+
+.hospital-name-modern {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brand-text {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333333;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+  animation: slideInFromLeft 1s ease-out;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #00c853;
+  letter-spacing: 8px;
+  animation: slideInFromRight 1s ease-out 0.3s both;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 15px 0 0 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Modern Progress Ring */
+.progress-section {
+  margin: 40px 0;
+}
+
+.progress-ring {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.progress-svg {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.progress-bg {
+  fill: none;
+  stroke: #f8f9fa;
+  stroke-width: 8;
+}
+
+.progress-bar-circle {
+  fill: none;
+  stroke: #00c853;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(0, 200, 83, 0.3));
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.progress-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* Loading Status */
+.loading-status {
+  margin-top: 20px;
+}
+
+.status-text {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+  min-height: 24px;
+  animation: fadeInOut 0.5s ease-in-out;
+}
+
+.dots-animation {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #00c853;
+  border-radius: 50%;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Subtle Background Elements */
+.bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.element {
+  position: absolute;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 200, 83, 0.05),
+    rgba(76, 175, 80, 0.05)
+  );
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.element-1 {
+  width: 60px;
+  height: 60px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.element-2 {
+  width: 40px;
+  height: 40px;
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.element-3 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+.element-4 {
+  width: 50px;
+  height: 50px;
+  bottom: 30%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+/* Animations */
+@keyframes heartbeat {
+  0%,
+  100% {
+    stroke-dasharray: 0 1000;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 200 1000;
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-8px) rotate(270deg);
+    opacity: 0.4;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loading-container {
+    padding: 20px;
+  }
+
+  .brand-text {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .brand-subtitle {
+    font-size: 1rem;
+    letter-spacing: 6px;
+  }
+
+  .progress-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .medical-symbol {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-text {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .brand-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+  }
+
+  .progress-svg {
+    width: 90px;
+    height: 90px;
+  }
+}
