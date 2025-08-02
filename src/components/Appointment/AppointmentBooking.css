@@ -57,18 +57,6 @@
   min-width: 50px;
 }
 
-.info-item h4 {
-  color: var(--text-dark);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.info-item p {
-  color: var(--dark-gray);
-  font-size: 1rem;
-}
-
 .appointment-form-container {
   background-color: var(--white);
   padding: 40px;
@@ -109,6 +97,8 @@
   font-size: 1rem;
   transition: border-color 0.3s ease;
   font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -180,26 +170,196 @@
   margin-bottom: 5px;
 }
 
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .appointment-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .appointment-form-container {
+    padding: 35px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .appointment-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
+  .appointment-info h3 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .info-item {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .info-item h4 {
+    font-size: 1.2rem;
+  }
+
+  .info-item p {
+    font-size: 0.95rem;
+  }
+
   .appointment-form-container {
     padding: 25px;
   }
-  
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+
   .success-message {
     padding: 40px 25px;
+    margin: 0 10px;
   }
-  
+
   .success-message h2 {
     font-size: 1.8rem;
+  }
+
+  .success-message p {
+    font-size: 1rem;
+  }
+
+  .success-details {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointment-section {
+    padding: 40px 0;
+  }
+
+  .appointment-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .info-item {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .info-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+
+  .info-item p {
+    font-size: 0.9rem;
+  }
+
+  .appointment-form-container {
+    padding: 20px;
+    margin: 0 5px;
+  }
+
+  .form-group {
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .form-group textarea {
+    min-height: 80px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .form-note {
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+
+  .success-message {
+    padding: 30px 20px;
+    margin: 0 5px;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+  }
+
+  .success-message h2 {
+    font-size: 1.6rem;
+  }
+
+  .success-message p {
+    font-size: 0.95rem;
+  }
+
+  .success-details {
+    padding: 12px;
+  }
+
+  .success-details p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .appointment-form-container {
+    padding: 15px;
+    margin: 0;
+  }
+
+  .info-item {
+    padding: 12px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .submit-btn {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .success-message {
+    padding: 25px 15px;
   }
 }
