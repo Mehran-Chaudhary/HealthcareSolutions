@@ -426,86 +426,57 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 100px 0 60px;
+    padding: 90px 0 50px;
     min-height: auto;
+    overflow-x: hidden;
   }
 
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
     text-align: center;
   }
 
   .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
 
   .hero-text p {
     font-size: 1rem;
     max-width: 100%;
+    padding: 0 10px;
   }
 
   .doctor-highlights {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 12px;
   }
 
   .hero-actions {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    padding: 0 10px;
   }
 
   .btn-primary-large,
   .btn-outline-modern {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 
   .hero-stats {
     justify-content: center;
-    gap: 25px;
-  }
-
-  .doctors-photos {
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-
-  .photo-container {
-    height: 200px;
-  }
-
-  .photo-overlay {
-    transform: translateY(0);
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 90px 0 50px;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .hero-text p {
-    font-size: 0.95rem;
-  }
-
-  .doctor-card {
-    padding: 15px;
-  }
-
-  .doctor-header h4 {
-    font-size: 1.1rem;
-  }
-
-  .hero-stats {
     gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    min-width: 80px;
   }
 
   .stat-number {
@@ -516,17 +487,71 @@
     font-size: 0.75rem;
   }
 
-  .doctors-photos {
-    grid-template-columns: 1fr;
+  .photos-placeholder {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+
+  .placeholder-icon {
+    font-size: 2.5rem;
+  }
+
+  .placeholder-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .placeholder-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 0 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .btn-primary-large,
+  .btn-outline-modern {
+    max-width: 250px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .hero-stats {
     gap: 15px;
   }
 
-  .photo-container {
-    height: 250px;
+  .stat-number {
+    font-size: 1.5rem;
   }
 
-  .credential-item {
-    font-size: 0.85rem;
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .photos-placeholder {
+    padding: 25px 15px;
+    margin: 0 5px;
+  }
+
+  .placeholder-icon {
+    font-size: 2rem;
+  }
+
+  .placeholder-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .placeholder-content p {
+    font-size: 0.8rem;
   }
 }
 

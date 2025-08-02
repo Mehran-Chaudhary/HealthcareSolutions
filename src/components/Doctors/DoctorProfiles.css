@@ -6,7 +6,7 @@
 
 .doctors-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -15,32 +15,33 @@
 
 @media (max-width: 1024px) {
   .doctors-grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
+    padding: 0 15px;
   }
 }
 
 @media (max-width: 768px) {
   .doctors-section {
-    padding: 60px 0;
-    margin-bottom: 40px;
+    padding: 50px 0;
+    margin-bottom: 30px;
   }
 
   .doctors-grid {
     grid-template-columns: 1fr;
     gap: 25px;
-    padding: 0 15px;
+    padding: 0 10px;
   }
 }
 
 @media (max-width: 480px) {
   .doctors-section {
     padding: 40px 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   .doctors-grid {
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 5px;
   }
 }

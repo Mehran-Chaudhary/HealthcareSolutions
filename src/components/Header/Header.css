@@ -164,6 +164,10 @@
 
 /* Mobile Styles */
 @media (max-width: 1024px) {
+  .header-content {
+    padding: 0 15px;
+  }
+
   .nav {
     position: absolute;
     top: 100%;
@@ -177,6 +181,8 @@
     visibility: hidden;
     transition: all 0.3s ease;
     border-radius: 0 0 20px 20px;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .nav-open {
@@ -187,47 +193,36 @@
 
   .nav-list {
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 15px;
     gap: 8px;
+    width: 100%;
   }
 
   .nav-list a {
-    padding: 15px 20px;
+    padding: 12px 15px;
     border-radius: 12px;
     display: block;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .menu-toggle {
     display: flex;
   }
 
+  .header-actions {
+    gap: 10px;
+  }
+
   .header-actions .btn {
-    font-size: 0.85rem;
-    padding: 8px 16px;
-  }
-
-  .logo-text h2 {
-    font-size: 1.5rem;
-  }
-
-  .logo-text span {
     font-size: 0.8rem;
+    padding: 8px 12px;
+    white-space: nowrap;
   }
 
-  .logo-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .medical-cross {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 768px) {
   .logo-text h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .logo-text span {
@@ -235,16 +230,79 @@
   }
 
   .logo-icon {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
   }
 
   .medical-cross {
     font-size: 18px;
   }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .header-content {
+    padding: 0 10px;
+  }
+
+  .logo {
+    gap: 8px;
+  }
+
+  .logo-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .logo-text span {
+    font-size: 0.7rem;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .medical-cross {
+    font-size: 16px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
 
   .header-actions .btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .nav-list {
+    padding: 15px 10px;
+  }
+
+  .nav-list a {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 8px;
+  }
+
+  .logo-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .logo-text span {
+    display: none;
+  }
+
+  .header-actions .btn {
+    padding: 5px 8px;
+    font-size: 0.7rem;
   }
 }

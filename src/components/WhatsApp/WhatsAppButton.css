@@ -188,26 +188,75 @@
 @media (max-width: 768px) {
   .whatsapp-button {
     bottom: 20px;
-    right: 20px;
+    right: 15px;
   }
 
   .whatsapp-btn {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
 
   .whatsapp-icon {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .whatsapp-widget {
-    width: 280px;
-    right: 20px;
-    bottom: 85px;
+    width: calc(100vw - 30px);
+    max-width: 280px;
+    right: 15px;
+    bottom: 80px;
+    left: 15px;
+    margin: 0 auto;
   }
 
   .whatsapp-tooltip {
-    bottom: 65px;
-    right: -10px;
+    bottom: 60px;
+    right: -5px;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .widget-header {
+    padding: 12px;
+  }
+
+  .widget-message {
+    padding: 15px;
+  }
+
+  .quick-options button {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-button {
+    bottom: 15px;
+    right: 10px;
+  }
+
+  .whatsapp-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .whatsapp-icon {
+    font-size: 1.2rem;
+  }
+
+  .whatsapp-widget {
+    width: calc(100vw - 20px);
+    max-width: 260px;
+    right: 10px;
+    bottom: 70px;
+    left: 10px;
+  }
+
+  .whatsapp-tooltip {
+    bottom: 55px;
+    right: 0;
+    font-size: 0.75rem;
+    padding: 6px 10px;
   }
 }

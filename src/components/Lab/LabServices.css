@@ -229,30 +229,76 @@
 
   .lab-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
   }
 
   .filter-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 12px 15px;
+    font-size: 0.9rem;
   }
 
   .tests-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .test-card {
+    padding: 20px;
   }
 
   .test-header {
     flex-direction: column;
     gap: 10px;
+    align-items: flex-start;
   }
 
   .test-name {
     margin-right: 0;
+    font-size: 1.1rem;
+  }
+
+  .test-price {
+    align-self: flex-start;
   }
 
   .contact-actions {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-btn {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .test-card {
+    padding: 15px;
+  }
+
+  .test-name {
+    font-size: 1rem;
+  }
+
+  .test-price {
+    padding: 6px 12px;
+    font-size: 1rem;
   }
 }
