@@ -369,6 +369,15 @@ body {
   animation: fadeInContent 1s var(--transition-normal);
 }
 
+/* Ensure WhatsApp button is always visible */
+.whatsapp-button {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
 @keyframes fadeInContent {
   from {
     opacity: 0;

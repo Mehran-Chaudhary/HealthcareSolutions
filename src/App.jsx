@@ -29,8 +29,10 @@ function App() {
         <LabServices />
         <Contact />
         <Footer />
-        <WhatsAppButton />
       </div>
+
+      {/* WhatsApp button outside main content to ensure it's always visible */}
+      <WhatsAppButton />
     </div>
   );
 }

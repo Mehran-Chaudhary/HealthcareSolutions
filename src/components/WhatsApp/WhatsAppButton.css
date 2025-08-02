@@ -2,10 +2,12 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  z-index: 1000;
+  z-index: 9999;
   opacity: 1;
   transform: scale(1);
   transition: all var(--transition-normal);
+  display: block !important;
+  visibility: visible !important;
 }
 
 .whatsapp-button.visible {
@@ -224,6 +226,9 @@
   .whatsapp-button {
     bottom: 20px;
     right: 15px;
+    z-index: 9999;
+    display: block !important;
+    visibility: visible !important;
   }
 
   .whatsapp-btn {
@@ -269,6 +274,9 @@
   .whatsapp-button {
     bottom: 15px;
     right: 10px;
+    z-index: 9999;
+    display: block !important;
+    visibility: visible !important;
   }
 
   .whatsapp-btn {

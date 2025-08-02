@@ -234,7 +234,13 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {isMenuOpen && <div className="menu-backdrop" onClick={toggleMenu}></div>}
+      {isMenuOpen && (
+        <div
+          className="menu-backdrop"
+          onClick={toggleMenu}
+          aria-hidden="true"
+        ></div>
+      )}
     </header>
   );
 };

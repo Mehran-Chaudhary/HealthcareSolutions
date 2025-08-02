@@ -5,8 +5,8 @@ const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // Show tooltip after 3 seconds
+    // Show tooltip after 3 seconds
+    const tooltipTimer = setTimeout(() => {
       setShowTooltip(true);
       // Hide tooltip after 5 seconds
       setTimeout(() => {
@@ -14,7 +14,12 @@ const WhatsAppButton = () => {
       }, 5000);
     }, 3000);
 
-    return () => clearTimeout(timer);
+    // Make sure WhatsApp button is visible
+    document.querySelector(".whatsapp-button").style.display = "block";
+    document.querySelector(".whatsapp-button").style.visibility = "visible";
+    document.querySelector(".whatsapp-button").style.opacity = "1";
+
+    return () => clearTimeout(tooltipTimer);
   }, []);
 
   const handleWhatsAppClick = () => {
