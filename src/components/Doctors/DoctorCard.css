@@ -1,99 +1,184 @@
 .doctor-card {
   background-color: var(--white);
-  border-radius: 20px;
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all var(--transition-normal);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .doctor-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 .doctor-image {
+  position: relative;
   height: 250px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--primary-light)
-  );
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.05), rgba(100, 181, 246, 0.1));
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.doctor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.doctor-card:hover .doctor-photo {
+  transform: scale(1.05);
+}
+
+.doctor-badge {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: var(--primary-gradient);
+  color: white;
+  padding: 5px 12px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
 }
 
 .doctor-image .image-placeholder {
   text-align: center;
-  color: var(--white);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.doctor-image .image-placeholder span {
-  font-size: 4rem;
-  display: block;
+.doctor-image .image-placeholder svg {
+  color: var(--primary-color);
   margin-bottom: 10px;
 }
 
 .doctor-image .image-placeholder p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .doctor-info {
-  padding: 30px;
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.doctor-name {
-  font-size: 1.8rem;
-  color: var(--text-dark);
-  font-weight: 700;
+.doctor-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 5px;
 }
 
-.doctor-specialization {
-  font-size: 1.2rem;
+.doctor-name {
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin: 0;
+}
+
+.doctor-qualification-badge {
+  display: inline-block;
+  background: rgba(25, 118, 210, 0.1);
   color: var(--primary-color);
+  padding: 4px 12px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 25px;
+  align-self: flex-start;
+}
+
+.doctor-specialization {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--medium-gray);
+  padding-bottom: 15px;
 }
 
 .doctor-details {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .detail-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.detail-item:last-child {
-  border-bottom: none;
+.detail-icon {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .detail-item strong {
   color: var(--text-dark);
   font-weight: 600;
-  min-width: 120px;
+  font-size: 0.9rem;
 }
 
 .detail-item span {
-  color: var(--dark-gray);
-  text-align: right;
-  flex: 1;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .expertise {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  margin-top: auto;
+}
+
+.expertise-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.expertise-header svg {
+  color: var(--primary-color);
 }
 
 .expertise strong {
   color: var(--text-dark);
   font-weight: 600;
-  display: block;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
 }
 
 .expertise-tags {
@@ -103,19 +188,36 @@
 }
 
 .expertise-tag {
-  background-color: var(--light-gray);
+  background-color: rgba(25, 118, 210, 0.08);
   color: var(--primary-color);
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.85rem;
   font-weight: 500;
-  border: 1px solid var(--primary-color);
+  transition: all var(--transition-normal);
+}
+
+.expertise-tag:hover {
+  background-color: rgba(25, 118, 210, 0.15);
+  transform: translateY(-2px);
 }
 
 .book-btn {
   width: 100%;
-  font-size: 1.1rem;
-  padding: 15px;
+  font-size: 1rem;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary-gradient);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-normal);
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 768px) {
@@ -124,20 +226,73 @@
   }
 
   .doctor-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .doctor-specialization {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
   }
 
-  .detail-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+  .doctor-image {
+    height: 200px;
   }
 
+  .expertise-tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .book-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-info {
+    padding: 15px;
+  }
+
+  .doctor-header {
+    gap: 8px;
+  }
+
+  .doctor-name {
+    font-size: 1.3rem;
+  }
+
+  .doctor-qualification-badge {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+
+  .doctor-specialization {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .doctor-image {
+    height: 180px;
+  }
+
+  .detail-item strong,
   .detail-item span {
-    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .expertise strong {
+    font-size: 0.85rem;
+  }
+
+  .expertise-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .book-btn {
+    font-size: 0.85rem;
+    padding: 8px;
   }
 }

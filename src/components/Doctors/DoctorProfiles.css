@@ -1,7 +1,21 @@
 .doctors-section {
   background-color: var(--white);
-  padding: 80px 0;
-  margin-bottom: 60px; /* Add separation from next section */
+  padding: 100px 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.doctors-section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
 }
 
 .doctors-grid {
@@ -9,8 +23,49 @@
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   padding: 0 20px;
+}
+
+.doctor-card-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-card {
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doctors-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.doctors-cta .btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctors-cta .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 1024px) {
@@ -19,29 +74,61 @@
     gap: 30px;
     padding: 0 15px;
   }
+  
+  .section-header {
+    margin-bottom: 50px;
+  }
+  
+  .doctors-cta .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .doctors-section {
-    padding: 50px 0;
-    margin-bottom: 30px;
+    padding: 60px 0;
   }
 
+  .section-header {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+  
   .doctors-grid {
     grid-template-columns: 1fr;
     gap: 25px;
     padding: 0 10px;
+    margin-bottom: 30px;
+  }
+  
+  .doctors-cta .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    width: 80%;
+    max-width: 300px;
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .doctors-section {
-    padding: 40px 0;
-    margin-bottom: 20px;
+    padding: 50px 0;
   }
 
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
   .doctors-grid {
     gap: 20px;
     padding: 0 5px;
+    margin-bottom: 20px;
+  }
+  
+  .doctors-cta .btn {
+    width: 90%;
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 }

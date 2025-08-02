@@ -1,7 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./AppointmentBooking.css";
 
 const AppointmentBooking = () => {
+  const sectionRef = useRef(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const [formData, setFormData] = useState({
     doctor: "",
     patientName: "",
@@ -97,27 +122,52 @@ Reason: ${formData.reason}`;
 
   if (isSubmitted) {
     return (
-      <section id="appointment" className="section appointment-section">
+      <section id="appointment" ref={sectionRef} className="section appointment-section">
         <div className="container">
           <div className="success-message">
-            <div className="success-icon">✅</div>
+            <div className="success-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
             <h2>Appointment Request Submitted!</h2>
-            <p>
-              Thank you {formData.patientName}! We have received your
+            <p className="success-text">
+              Thank you <span className="highlight">{formData.patientName}</span>! We have received your
               appointment request.
             </p>
-            <p>
+            <p className="success-text">
               Our team will contact you shortly to confirm your appointment with{" "}
-              {formData.doctor}.
+              <span className="highlight">{formData.doctor}</span>.
             </p>
             <div className="success-details">
-              <p>
-                <strong>Requested Date:</strong> {formData.date}
-              </p>
-              <p>
-                <strong>Requested Time:</strong> {formData.time}
-              </p>
+              <div className="success-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <div>
+                  <strong>Requested Date:</strong> {formData.date}
+                </div>
+              </div>
+              <div className="success-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div>
+                  <strong>Requested Time:</strong> {formData.time}
+                </div>
+              </div>
             </div>
+            <button onClick={() => setIsSubmitted(false)} className="btn return-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              Return to Form
+            </button>
           </div>
         </div>
       </section>
@@ -125,17 +175,30 @@ Reason: ${formData.reason}`;
   }
 
   return (
-    <section id="appointment" className="section appointment-section">
+    <section id="appointment" ref={sectionRef} className="section appointment-section">
       <div className="container">
-        <h2 className="section-title">Book Your Appointment</h2>
-        <p className="section-subtitle">
-          Schedule your visit with our expert doctors. Fill out the form below
-          and we'll confirm your appointment.
-        </p>
+        <div className="section-header">
+          <h2 className="section-title">Book Your Appointment</h2>
+          <p className="section-subtitle">
+            Schedule your visit with our expert doctors. Fill out the form below
+            and we'll confirm your appointment.
+          </p>
+        </div>
 
         <div className="appointment-content">
           <div className="appointment-form-container">
             <form className="appointment-form" onSubmit={handleSubmit}>
+              <div className="form-header">
+                <div className="form-header-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <h3>Patient Information</h3>
+              </div>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="doctor">Select Doctor *</label>
@@ -276,7 +339,13 @@ Reason: ${formData.reason}`;
               </div>
 
               <button type="submit" className="btn submit-btn">
-                📅 Book Appointment
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Book Appointment
               </button>
             </form>
           </div>
@@ -287,28 +356,49 @@ Reason: ${formData.reason}`;
           <h3>Why Choose Online Booking?</h3>
           <div className="benefits-grid">
             <div className="benefit-item">
-              <div className="benefit-icon">⏰</div>
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
               <div>
                 <h4>Save Time</h4>
                 <p>No need to wait in long queues</p>
               </div>
             </div>
             <div className="benefit-item">
-              <div className="benefit-icon">📅</div>
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
               <div>
                 <h4>Choose Your Slot</h4>
                 <p>Pick the most convenient time</p>
               </div>
             </div>
             <div className="benefit-item">
-              <div className="benefit-icon">💬</div>
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
               <div>
                 <h4>WhatsApp Confirmation</h4>
                 <p>Get instant confirmation via WhatsApp</p>
               </div>
             </div>
             <div className="benefit-item">
-              <div className="benefit-icon">🔒</div>
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <path d="M7 12h10"></path>
+                </svg>
+              </div>
               <div>
                 <h4>Secure & Private</h4>
                 <p>Your information is safe with us</p>

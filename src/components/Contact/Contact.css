@@ -1,19 +1,62 @@
 .contact-section {
   background-color: var(--light-gray);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.section-subheader {
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.section-subheader h3 {
+  color: var(--text-dark);
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+}
+
+.section-subheader h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform: translateX(-50%);
+  border-radius: var(--border-radius-pill);
 }
 
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  margin-bottom: 60px;
+  margin: 60px auto;
+  max-width: 1200px;
+  animation: fadeInUp 0.8s ease-in-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.contact-info h3 {
-  color: var(--text-dark);
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 30px;
+.contact-info {
+  animation: fadeInUp 0.8s ease-in-out 0.4s forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .info-cards {
@@ -28,31 +71,46 @@
   gap: 20px;
   background-color: var(--white);
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--medium-gray);
 }
 
 .info-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
 }
 
 .info-icon {
-  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
   min-width: 60px;
-  text-align: center;
+  background: rgba(25, 118, 210, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  transition: all var(--transition-normal);
 }
 
-.info-content h4 {
+.info-card:hover .info-icon {
+  transform: scale(1.1);
+  background: rgba(25, 118, 210, 0.15);
+}
+
+.info-details h4 {
   color: var(--text-dark);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
-.info-content p {
-  color: var(--dark-gray);
-  font-size: 1rem;
+.info-details p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
   margin-bottom: 4px;
   line-height: 1.5;
 }

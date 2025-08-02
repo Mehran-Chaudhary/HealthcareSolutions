@@ -1,7 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Contact.css";
 
 const Contact = () => {
+  const sectionRef = useRef(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,17 +82,21 @@ Message: ${formData.message}`;
   };
 
   return (
-    <section id="contact" className="section contact-section">
+    <section id="contact" ref={sectionRef} className="section contact-section">
       <div className="container">
-        <h2 className="section-title">Contact Us</h2>
-        <p className="section-subtitle">
-          Get in touch with us for appointments, inquiries, or any assistance.
-          We're here to help you with your healthcare needs.
-        </p>
+        <div className="section-header">
+          <h2 className="section-title">Contact Us</h2>
+          <p className="section-subtitle">
+            Get in touch with us for appointments, inquiries, or any assistance.
+            We're here to help you with your healthcare needs.
+          </p>
+        </div>
 
         {/* MAP SECTION - MOVED TO THE VERY START */}
         <div className="map-section">
-          <h3>Find Us on Map</h3>
+          <div className="section-subheader">
+            <h3>Find Us on Map</h3>
+          </div>
           <div className="map-container">
             <div className="map-responsive">
               <iframe
@@ -83,7 +112,15 @@ Message: ${formData.message}`;
             </div>
             <div className="map-info">
               <div className="map-details">
-                <h4>📍 Shamim Hospital</h4>
+                <div className="map-header">
+                  <div className="map-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <h4>Shamim Hospital</h4>
+                </div>
                 <p>Shamim hospital, HMMP+9VF, Main bazar, Mananwala</p>
                 <div className="map-actions">
                   <a
@@ -92,14 +129,22 @@ Message: ${formData.message}`;
                     rel="noopener noreferrer"
                     className="btn btn-outline"
                   >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
                     Open in Google Maps
                   </a>
                   <a
                     href="https://maps.google.com/maps/dir//31.58321,73.68721"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn"
+                    className="btn btn-primary"
                   >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                    </svg>
                     Get Directions
                   </a>
                 </div>
@@ -111,10 +156,16 @@ Message: ${formData.message}`;
         {/* CONTACT CONTENT - BELOW MAP */}
         <div className="contact-content">
           <div className="contact-info">
-            <h3>Get in Touch</h3>
+            <div className="section-subheader">
+              <h3>Get in Touch</h3>
+            </div>
             <div className="info-cards">
               <div className="info-card">
-                <div className="info-icon">📞</div>
+                <div className="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
                 <div className="info-details">
                   <h4>Phone</h4>
                   <p>+92 563 771155</p>
@@ -123,7 +174,12 @@ Message: ${formData.message}`;
               </div>
 
               <div className="info-card">
-                <div className="info-icon">📧</div>
+                <div className="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
                 <div className="info-details">
                   <h4>Email</h4>
                   <p>info@shamimhospital.com</p>
@@ -132,7 +188,12 @@ Message: ${formData.message}`;
               </div>
 
               <div className="info-card">
-                <div className="info-icon">📍</div>
+                <div className="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
                 <div className="info-details">
                   <h4>Address</h4>
                   <p>Shamim hospital, HMMP+9VF</p>
@@ -141,7 +202,12 @@ Message: ${formData.message}`;
               </div>
 
               <div className="info-card">
-                <div className="info-icon">🕒</div>
+                <div className="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
                 <div className="info-details">
                   <h4>Working Hours</h4>
                   <p>Mon - Sat: 8:00 AM - 10:00 PM</p>
@@ -156,13 +222,26 @@ Message: ${formData.message}`;
           <div className="contact-form-container">
             {isSubmitted ? (
               <div className="success-message">
-                <div className="success-icon">✅</div>
+                <div className="success-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
                 <h3>Message Sent Successfully!</h3>
                 <p>Thank you for contacting us. We'll get back to you soon.</p>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
-                <h3>Send us a Message</h3>
+                <div className="form-header">
+                  <div className="form-header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <h3>Send us a Message</h3>
+                </div>
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="name">Full Name *</label>
@@ -230,7 +309,11 @@ Message: ${formData.message}`;
                 </div>
 
                 <button type="submit" className="btn submit-btn">
-                  📧 Send Message
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Send Message
                 </button>
               </form>
             )}
