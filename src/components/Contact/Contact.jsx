@@ -26,7 +26,7 @@ const Contact = () => {
     // WhatsApp integration for contact form
     const whatsappMessage = `Hello Shamim Hospital!\n\nContact Form Submission:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nSubject: ${formData.subject}\nMessage: ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/923124447335?text=${encodeURIComponent(
       whatsappMessage
     )}`;
 
@@ -57,17 +57,16 @@ const Contact = () => {
       title: "Address",
       details: [
         "Shamim Hospital",
-        "Main Street, Medical District",
-        "City, State - 123456",
+        "HMMP+9VF, Main bazar",
+        "Mananwala",
       ],
     },
     {
       icon: "📞",
       title: "Phone Numbers",
       details: [
-        "+92 300 1234567",
-        "+92 42 1234567",
-        "Emergency: +92 300 9876543",
+        "+92 312 4447335",
+        "Emergency: +92 312 4447335",
       ],
     },
     {
@@ -114,32 +113,6 @@ const Contact = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="quick-actions">
-              <h4>Quick Actions</h4>
-              <div className="action-buttons">
-                <a href="tel:+923001234567" className="action-btn call-btn">
-                  <span>📞</span>
-                  Call Now
-                </a>
-                <a
-                  href="https://wa.me/923001234567"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="action-btn whatsapp-btn"
-                >
-                  <span>💬</span>
-                  WhatsApp
-                </a>
-                <a
-                  href="mailto:info@shamimhospital.com"
-                  className="action-btn email-btn"
-                >
-                  <span>📧</span>
-                  Email Us
-                </a>
-              </div>
             </div>
           </div>
 
@@ -250,10 +223,10 @@ const Contact = () => {
                   embedded here
                 </p>
                 <p>
-                  <strong>Address:</strong> Main Street, Medical District, City
+                  <strong>Address:</strong> HMMP+9VF, Main bazar, Mananwala
                 </p>
                 <a
-                  href="https://maps.google.com/?q=Shamim+Hospital"
+                  href="https://maps.google.com/?q=HMMP+9VF,+Main+bazar,+Mananwala"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn"

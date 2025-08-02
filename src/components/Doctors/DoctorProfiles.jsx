@@ -16,10 +16,11 @@ const DoctorProfiles = () => {
       languages: "English, Urdu, Hindi",
       expertise: [
         "Diabetes Management",
-        "Hypertension",
+        "Hypertension Treatment",
         "Cardiac Care",
         "Preventive Medicine",
       ],
+      photo: "/drwaseem.webp",
     },
     {
       id: 2,
@@ -37,6 +38,7 @@ const DoctorProfiles = () => {
         "Family Planning",
         "Reproductive Health",
       ],
+      photo: "/quratulain.webp",
     },
   ];
 

@@ -138,28 +138,24 @@ const AppointmentBooking = () => {
             <h3>Why Choose Online Booking?</h3>
             <div className="info-list">
               <div className="info-item">
-                <span className="info-icon">⏰</span>
                 <div>
                   <h4>Save Time</h4>
                   <p>No need to wait in long queues</p>
                 </div>
               </div>
               <div className="info-item">
-                <span className="info-icon">📅</span>
                 <div>
                   <h4>Choose Your Slot</h4>
                   <p>Pick the most convenient time</p>
                 </div>
               </div>
               <div className="info-item">
-                <span className="info-icon">💬</span>
                 <div>
                   <h4>WhatsApp Confirmation</h4>
                   <p>Get instant confirmation via WhatsApp</p>
                 </div>
               </div>
               <div className="info-item">
-                <span className="info-icon">🔒</span>
                 <div>
                   <h4>Secure & Private</h4>
                   <p>Your information is safe with us</p>

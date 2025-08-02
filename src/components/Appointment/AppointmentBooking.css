@@ -27,9 +27,29 @@
   align-items: flex-start;
   gap: 15px;
   background-color: var(--white);
-  padding: 20px;
+  padding: 25px;
   border-radius: 15px;
   box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(0, 200, 83, 0.15);
+}
+
+.info-item h4 {
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.info-item p {
+  color: var(--dark-gray);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .info-icon {

@@ -37,19 +37,23 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "Facebook",
-      icon: "📘",
+      icon: "/facebook.png",
       href: "https://facebook.com/shamimhospital",
     },
     {
       name: "Instagram",
-      icon: "📷",
+      icon: "/instagram.jpeg",
       href: "https://instagram.com/shamimhospital",
     },
-    { name: "Twitter", icon: "🐦", href: "https://twitter.com/shamimhospital" },
+    { 
+      name: "Twitter", 
+      icon: "/twitter.png", 
+      href: "https://twitter.com/shamimhospital" 
+    },
     {
-      name: "LinkedIn",
-      icon: "💼",
-      href: "https://linkedin.com/company/shamimhospital",
+      name: "WhatsApp",
+      icon: "/whatsapp.jpeg",
+      href: "https://wa.me/923124447335",
     },
   ];
 
@@ -76,8 +80,8 @@ const Footer = () => {
 
               <div className="emergency-info">
                 <h4>🚨 Emergency Contact</h4>
-                <a href="tel:+923009876543" className="emergency-number">
-                  +92 300 987-6543
+                <a href="tel:+923124447335" className="emergency-number">
+                  +92 312 444-7335
                 </a>
                 <p>Available 24/7 for emergencies</p>
               </div>
@@ -115,9 +119,9 @@ const Footer = () => {
                 <div>
                   <strong>Address:</strong>
                   <p>
-                    Main Street, Medical District
+                    HMMP+9VF, Main bazar
                     <br />
-                    City, State - 123456
+                    Mananwala
                   </p>
                 </div>
               </div>
@@ -127,9 +131,9 @@ const Footer = () => {
                 <div>
                   <strong>Phone:</strong>
                   <p>
-                    +92 300 123-4567
+                    +92 312 444-7335
                     <br />
-                    +92 42 123-4567
+                    Emergency: +92 312 444-7335
                   </p>
                 </div>
               </div>
@@ -173,7 +177,11 @@ const Footer = () => {
                 className="social-link"
                 title={social.name}
               >
-                <span>{social.icon}</span>
+                <img 
+                  src={social.icon} 
+                  alt={social.name} 
+                  style={{width: '20px', height: '20px', borderRadius: '4px'}} 
+                />
                 {social.name}
               </a>
             ))}

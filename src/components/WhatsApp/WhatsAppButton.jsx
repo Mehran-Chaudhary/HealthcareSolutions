@@ -23,7 +23,7 @@ const WhatsAppButton = () => {
 
   const handleWhatsAppClick = () => {
     const message = "Hello Shamim Hospital! I would like to get more information about your services.";
-    const whatsappUrl = `https://wa.me/923001234567?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/923124447335?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     // Hide tooltip when clicked
@@ -38,7 +38,7 @@ const WhatsAppButton = () => {
           onClick={handleWhatsAppClick}
           aria-label="Contact us on WhatsApp"
         >
-          <span className="whatsapp-icon">💬</span>
+          <img src="/whatsapp.jpeg" alt="WhatsApp" style={{width: '24px', height: '24px', borderRadius: '4px'}} />
         </button>
         
         {showTooltip && (
@@ -53,7 +53,7 @@ const WhatsAppButton = () => {
       <div className="whatsapp-widget">
         <div className="widget-header">
           <div className="widget-avatar">
-            <span>🏥</span>
+            <img src="/whatsapp.jpeg" alt="WhatsApp" style={{width: '30px', height: '30px', borderRadius: '50%'}} />
           </div>
           <div className="widget-info">
             <h4>Shamim Hospital</h4>
@@ -95,7 +95,7 @@ const WhatsAppButton = () => {
         message = "Hello Shamim Hospital! I would like to get more information.";
     }
     
-    const whatsappUrl = `https://wa.me/923001234567?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/923124447335?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }
 };

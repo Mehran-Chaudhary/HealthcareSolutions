@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 40px;
 }
 
 .info-card {
@@ -56,66 +55,6 @@
   font-size: 1rem;
   margin-bottom: 4px;
   line-height: 1.5;
-}
-
-.quick-actions h4 {
-  color: var(--text-dark);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.action-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.action-btn {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px 20px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.call-btn {
-  background-color: #007bff;
-  color: var(--white);
-}
-
-.call-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-.whatsapp-btn {
-  background-color: #25d366;
-  color: var(--white);
-}
-
-.whatsapp-btn:hover {
-  background-color: #1da851;
-  transform: translateY(-2px);
-}
-
-.email-btn {
-  background-color: #dc3545;
-  color: var(--white);
-}
-
-.email-btn:hover {
-  background-color: #c82333;
-  transform: translateY(-2px);
-}
-
-.action-btn span {
-  font-size: 1.3rem;
 }
 
 .contact-form-section {
@@ -214,12 +153,6 @@
 
   .contact-form-section {
     padding: 25px;
-  }
-
-  .action-buttons {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
   }
 
   .map-placeholder {
