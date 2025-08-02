@@ -170,27 +170,34 @@
   margin-bottom: 5px;
 }
 
-/* Enhanced Mobile Responsiveness */
-@media (max-width: 1024px) {
+/* Desktop Layout Fixes */
+@media (min-width: 1200px) {
   .appointment-content {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
   }
-
+  
   .appointment-form-container {
-    padding: 35px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    max-width: 700px;
   }
 }
 
+@media (min-width: 769px) and (max-width: 1199px) {
+  .appointment-content {
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
   .appointment-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
 
   .appointment-info h3 {

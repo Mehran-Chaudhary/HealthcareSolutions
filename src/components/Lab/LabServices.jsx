@@ -168,19 +168,21 @@ const LabServices = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="category-filter">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`filter-btn ${
-                selectedCategory === category.id ? "active" : ""
-              }`}
-              onClick={() => setSelectedCategory(category.id)}
-            >
-              <span className="filter-icon">{category.icon}</span>
-              {category.name}
-            </button>
-          ))}
+        <div className="category-filters">
+          <div className="filter-buttons">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                className={`filter-btn ${
+                  selectedCategory === category.id ? "active" : ""
+                }`}
+                onClick={() => setSelectedCategory(category.id)}
+              >
+                <span className="filter-icon">{category.icon}</span>
+                {category.name}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Tests Grid */}

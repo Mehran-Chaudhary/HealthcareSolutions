@@ -150,20 +150,7 @@ Message: ${formData.message}`;
               </div>
             </div>
 
-            <div className="social-links">
-              <h4>Follow Us</h4>
-              <div className="social-icons">
-                <a href="#" className="social-link facebook">
-                  <img src="/facebook.png" alt="Facebook" />
-                </a>
-                <a href="#" className="social-link instagram">
-                  <img src="/instagram.jpeg" alt="Instagram" />
-                </a>
-                <a href="#" className="social-link whatsapp">
-                  <img src="/whatsapp.jpeg" alt="WhatsApp" />
-                </a>
-              </div>
-            </div>
+            {/* REMOVED THE DUPLICATE SOCIAL LINKS SECTION */}
           </div>
 
           <div className="contact-form-container">

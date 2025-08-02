@@ -206,6 +206,31 @@
   display: inline-block;
 }
 
+/* Desktop Layout Fixes */
+@media (min-width: 1200px) {
+  .contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-form-section {
+    max-width: 500px;
+  }
+
+  .info-cards {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .contact-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
 /* Enhanced Mobile Responsiveness */
 @media (max-width: 1024px) {
   .contact-content {

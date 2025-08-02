@@ -195,30 +195,81 @@
   opacity: 0.9;
 }
 
+/* Contact Actions - Fixed positioning and visibility */
 .contact-actions {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 40px;
+  padding: 20px 0;
 }
 
 .contact-actions .btn {
-  background-color: var(--white);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .contact-actions .btn:hover {
-  background-color: #f8f9fa;
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
 }
 
 .contact-actions .btn-outline {
   background-color: transparent;
-  color: var(--white);
-  border-color: var(--white);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .contact-actions .btn-outline:hover {
-  background-color: var(--white);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
+}
+
+/* Desktop Layout Fixes */
+@media (min-width: 1200px) {
+  .lab-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+  }
+
+  .tests-grid {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 30px;
+  }
+
+  .contact-actions {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .lab-content {
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tests-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -230,6 +281,10 @@
   .lab-content {
     grid-template-columns: 1fr;
     gap: 25px;
+  }
+
+  .category-filters {
+    margin-bottom: 30px;
   }
 
   .filter-buttons {
@@ -271,11 +326,14 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-top: 30px;
+    padding: 20px 10px;
   }
 
   .contact-actions .btn {
     width: 100%;
-    max-width: 200px;
+    max-width: 280px;
+    justify-content: center;
   }
 }
 
@@ -299,6 +357,12 @@
 
   .test-price {
     padding: 6px 12px;
+    font-size: 1rem;
+  }
+
+  .contact-actions .btn {
+    max-width: 100%;
+    padding: 12px 20px;
     font-size: 1rem;
   }
 }
