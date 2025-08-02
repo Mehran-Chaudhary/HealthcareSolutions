@@ -8,17 +8,16 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
   useEffect(() => {
     const loadingSteps = [
-      { progress: 20, text: 'Loading Medical Services...' },
-      { progress: 40, text: 'Preparing Doctor Profiles...' },
-      { progress: 60, text: 'Setting Up Appointments...' },
-      { progress: 80, text: 'Finalizing Lab Services...' },
-      { progress: 100, text: 'Welcome to Shamim Hospital!' }
+      { progress: 25, text: 'Loading Services...' },
+      { progress: 50, text: 'Preparing Doctors...' },
+      { progress: 75, text: 'Setting Up...' },
+      { progress: 100, text: 'Welcome!' }
     ];
 
     let currentStep = 0;
     const timer = setInterval(() => {
       setProgress(prev => {
-        const newProgress = prev + 1;
+        const newProgress = prev + 4; // Faster increment
         
         // Update loading text based on progress
         if (currentStep < loadingSteps.length && newProgress >= loadingSteps[currentStep].progress) {
@@ -31,12 +30,12 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           setTimeout(() => {
             setIsVisible(false);
             onLoadingComplete();
-          }, 800);
+          }, 300); // Reduced from 800ms
           return 100;
         }
         return newProgress;
       });
-    }, 60);
+    }, 30); // Reduced from 60ms
 
     return () => clearInterval(timer);
   }, [onLoadingComplete]);

@@ -55,19 +55,12 @@ const Contact = () => {
     {
       icon: "📍",
       title: "Address",
-      details: [
-        "Shamim Hospital",
-        "HMMP+9VF, Main bazar",
-        "Mananwala",
-      ],
+      details: ["Shamim Hospital", "HMMP+9VF, Main bazar", "Mananwala"],
     },
     {
       icon: "📞",
       title: "Phone Numbers",
-      details: [
-        "+92 312 4447335",
-        "Emergency: +92 312 4447335",
-      ],
+      details: ["+92 312 4447335", "Emergency: +92 312 4447335"],
     },
     {
       icon: "📧",
@@ -100,7 +93,7 @@ const Contact = () => {
 
         <div className="contact-content">
           <div className="contact-info">
-            <h3>Get In Touch</h3>
+            <h3>Get in Touch</h3>
             <div className="info-cards">
               {contactInfo.map((info, index) => (
                 <div key={index} className="info-card">
@@ -129,7 +122,6 @@ const Contact = () => {
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
                 <h3>Send us a Message</h3>
-
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="name">Full Name *</label>
@@ -173,20 +165,15 @@ const Contact = () => {
 
                   <div className="form-group">
                     <label htmlFor="subject">Subject *</label>
-                    <select
+                    <input
+                      type="text"
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
+                      placeholder="Enter subject"
                       required
-                    >
-                      <option value="">Select subject</option>
-                      <option value="appointment">Appointment Inquiry</option>
-                      <option value="lab">Lab Test Inquiry</option>
-                      <option value="emergency">Emergency</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="other">Other</option>
-                    </select>
+                    />
                   </div>
                 </div>
 
@@ -214,25 +201,40 @@ const Contact = () => {
         <div className="map-section">
           <h3>Find Us on Map</h3>
           <div className="map-container">
-            <div className="map-placeholder">
-              <div className="map-content">
-                <span className="map-icon">🗺️</span>
-                <h4>Google Maps Integration</h4>
-                <p>
-                  Interactive map showing Shamim Hospital location will be
-                  embedded here
-                </p>
-                <p>
-                  <strong>Address:</strong> HMMP+9VF, Main bazar, Mananwala
-                </p>
-                <a
-                  href="https://maps.google.com/?q=HMMP+9VF,+Main+bazar,+Mananwala"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn"
-                >
-                  Open in Google Maps
-                </a>
+            <div className="map-responsive">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.8234567890123!2d73.68721!3d31.58321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDM0JzU5LjYiTiA3M8KwNDEnMTQuMCJF!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Shamim Hospital Location"
+              ></iframe>
+            </div>
+            <div className="map-info">
+              <div className="map-details">
+                <h4>📍 Shamim Hospital</h4>
+                <p>Shamim hospital, HMMP+9VF, Main bazar, Mananwala</p>
+                <div className="map-actions">
+                  <a
+                    href="https://maps.google.com/?q=31.58321,73.68721"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                  >
+                    Open in Google Maps
+                  </a>
+                  <a
+                    href="https://maps.google.com/maps/dir//31.58321,73.68721"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn"
+                  >
+                    Get Directions
+                  </a>
+                </div>
               </div>
             </div>
           </div>
