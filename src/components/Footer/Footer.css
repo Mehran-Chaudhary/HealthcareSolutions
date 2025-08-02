@@ -2,6 +2,14 @@
   background: linear-gradient(135deg, #2c3e50, #34495e);
   color: var(--white);
   padding: 60px 0 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.footer-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .footer-content {
@@ -41,15 +49,35 @@
 .emergency-info {
   background-color: rgba(231, 76, 60, 0.1);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   border-left: 4px solid #e74c3c;
+  animation: fadeIn 0.8s ease-in-out 0.5s forwards;
+  opacity: 0;
+}
+
+.emergency-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.emergency-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(231, 76, 60, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
 }
 
 .emergency-info h4 {
   color: #e74c3c;
   font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .emergency-number {
@@ -123,8 +151,15 @@
 }
 
 .contact-icon {
-  font-size: 1.5rem;
-  min-width: 30px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background-color: rgba(25, 118, 210, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
 }
 
 .contact-item strong {
@@ -166,18 +201,34 @@
   gap: 10px;
   padding: 12px 15px;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
 .social-link:hover {
+  background-color: rgba(25, 118, 210, 0.2);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.social-link:hover .social-icon {
   background-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
 }
 
 .social-link img {
@@ -230,7 +281,20 @@
   text-align: center;
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
+  animation: fadeIn 0.8s ease-in-out 0.6s forwards;
+  opacity: 0;
+}
+
+.certification-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 5px;
+}
+
+.certification-item svg {
+  color: var(--primary-color);
 }
 
 .footer-certifications p {
