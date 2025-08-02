@@ -54,31 +54,31 @@ const AppointmentBooking = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you would typically send data to backend
-    console.log("Appointment Data:", formData);
+    // Create WhatsApp message
+    const message = `New Appointment Request:
+
+Doctor: ${formData.doctor}
+Patient: ${formData.patientName}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Gender: ${formData.gender}
+Age: ${formData.age}
+Preferred Date: ${formData.date}
+Preferred Time: ${formData.time}
+Reason: ${formData.reason}`;
+
+    const phoneNumber = "+923001234567"; // Replace with actual WhatsApp number
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
 
     // Show success message
     setIsSubmitted(true);
 
-    // WhatsApp integration
-    const whatsappMessage = `Hello Shamim Hospital! I would like to book an appointment:\n\nPatient: ${formData.patientName}\nDoctor: ${formData.doctor}\nDate: ${formData.date}\nTime: ${formData.time}\nReason: ${formData.reason}\nPhone: ${formData.phone}`;
-
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-
-    // Optional: Auto-open WhatsApp
-    setTimeout(() => {
-      if (
-        window.confirm(
-          "Would you like to send this appointment request via WhatsApp?"
-        )
-      ) {
-        window.open(whatsappUrl, "_blank");
-      }
-    }, 2000);
-
-    // Reset form after 3 seconds
+    // Reset form after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -92,7 +92,7 @@ const AppointmentBooking = () => {
         gender: "",
         age: "",
       });
-    }, 3000);
+    }, 5000);
   };
 
   if (isSubmitted) {
@@ -134,36 +134,6 @@ const AppointmentBooking = () => {
         </p>
 
         <div className="appointment-content">
-          <div className="appointment-info">
-            <h3>Why Choose Online Booking?</h3>
-            <div className="info-list">
-              <div className="info-item">
-                <div>
-                  <h4>Save Time</h4>
-                  <p>No need to wait in long queues</p>
-                </div>
-              </div>
-              <div className="info-item">
-                <div>
-                  <h4>Choose Your Slot</h4>
-                  <p>Pick the most convenient time</p>
-                </div>
-              </div>
-              <div className="info-item">
-                <div>
-                  <h4>WhatsApp Confirmation</h4>
-                  <p>Get instant confirmation via WhatsApp</p>
-                </div>
-              </div>
-              <div className="info-item">
-                <div>
-                  <h4>Secure & Private</h4>
-                  <p>Your information is safe with us</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="appointment-form-container">
             <form className="appointment-form" onSubmit={handleSubmit}>
               <div className="form-row">
@@ -199,7 +169,9 @@ const AppointmentBooking = () => {
                     required
                   />
                 </div>
+              </div>
 
+              <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number *</label>
                   <input
@@ -212,9 +184,6 @@ const AppointmentBooking = () => {
                     required
                   />
                 </div>
-              </div>
-
-              <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="email">Email Address</label>
                   <input
@@ -226,7 +195,9 @@ const AppointmentBooking = () => {
                     placeholder="Enter email address"
                   />
                 </div>
+              </div>
 
+              <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="gender">Gender *</label>
                   <select
@@ -237,14 +208,11 @@ const AppointmentBooking = () => {
                     required
                   >
                     <option value="">Select gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
-              </div>
-
-              <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="age">Age *</label>
                   <input
@@ -274,7 +242,6 @@ const AppointmentBooking = () => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="time">Preferred Time *</label>
                   <select
@@ -284,7 +251,7 @@ const AppointmentBooking = () => {
                     onChange={handleInputChange}
                     required
                   >
-                    <option value="">Select time</option>
+                    <option value="">Select time slot</option>
                     {timeSlots.map((slot) => (
                       <option key={slot} value={slot}>
                         {slot}
@@ -294,30 +261,66 @@ const AppointmentBooking = () => {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="reason">Reason for Visit *</label>
-                <textarea
-                  id="reason"
-                  name="reason"
-                  value={formData.reason}
-                  onChange={handleInputChange}
-                  placeholder="Please describe your symptoms or reason for visit"
-                  rows="4"
-                  required
-                ></textarea>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="reason">Reason for Visit</label>
+                  <textarea
+                    id="reason"
+                    name="reason"
+                    value={formData.reason}
+                    onChange={handleInputChange}
+                    placeholder="Briefly describe your symptoms or reason for visit"
+                    rows="4"
+                  ></textarea>
+                </div>
               </div>
 
               <button type="submit" className="btn submit-btn">
-                Submit Appointment Request
+                📅 Book Appointment
               </button>
-
-              <p className="form-note">
-                * Required fields. We'll contact you within 2 hours to confirm
-                your appointment.
-              </p>
             </form>
           </div>
         </div>
+
+        {/* Why Choose Online Booking - Moved Below Form */}
+        <div className="why-choose-section">
+          <h3>Why Choose Online Booking?</h3>
+          <div className="benefits-grid">
+            <div className="benefit-item">
+              <div className="benefit-icon">⏰</div>
+              <div>
+                <h4>Save Time</h4>
+                <p>No need to wait in long queues</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <div className="benefit-icon">📅</div>
+              <div>
+                <h4>Choose Your Slot</h4>
+                <p>Pick the most convenient time</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <div className="benefit-icon">💬</div>
+              <div>
+                <h4>WhatsApp Confirmation</h4>
+                <p>Get instant confirmation via WhatsApp</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <div className="benefit-icon">🔒</div>
+              <div>
+                <h4>Secure & Private</h4>
+                <p>Your information is safe with us</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p className="form-note">
+          * Required fields. You will receive a confirmation via WhatsApp after
+          submitting this form.
+        </p>
       </div>
     </section>
   );

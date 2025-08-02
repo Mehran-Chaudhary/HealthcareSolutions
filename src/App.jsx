@@ -4,8 +4,8 @@ import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import DoctorProfiles from "./components/Doctors/DoctorProfiles";
 import AppointmentBooking from "./components/Appointment/AppointmentBooking";
-import LabServices from "./components/Lab/LabServices";
 import Contact from "./components/Contact/Contact";
+import LabServices from "./components/Lab/LabServices";
 import Footer from "./components/Footer/Footer";
 import WhatsAppButton from "./components/WhatsApp/WhatsAppButton";
 import "./App.css";
@@ -20,14 +20,14 @@ function App() {
   return (
     <div className="App">
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-      
-      <div className={`main-content ${isLoading ? 'hidden' : 'visible'}`}>
+
+      <div className={`main-content ${isLoading ? "hidden" : "visible"}`}>
         <Header />
         <Hero />
         <DoctorProfiles />
         <AppointmentBooking />
-        <LabServices />
         <Contact />
+        <LabServices />
         <Footer />
         <WhatsAppButton />
       </div>
