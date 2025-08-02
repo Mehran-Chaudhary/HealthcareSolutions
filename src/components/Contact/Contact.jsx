@@ -23,22 +23,27 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // WhatsApp integration for contact form
-    const whatsappMessage = `Hello Shamim Hospital!\n\nContact Form Submission:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nSubject: ${formData.subject}\nMessage: ${formData.message}`;
+    // Create WhatsApp message
+    const message = `Contact Form Submission:
 
-    const whatsappUrl = `https://wa.me/923124447335?text=${encodeURIComponent(
-      whatsappMessage
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+Message: ${formData.message}`;
+
+    const phoneNumber = "+923001234567"; // Replace with actual WhatsApp number
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
     )}`;
 
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
+
+    // Show success message
     setIsSubmitted(true);
 
-    setTimeout(() => {
-      if (window.confirm("Would you like to send this message via WhatsApp?")) {
-        window.open(whatsappUrl, "_blank");
-      }
-    }, 1500);
-
-    // Reset form
+    // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -51,153 +56,16 @@ const Contact = () => {
     }, 3000);
   };
 
-  const contactInfo = [
-    {
-      icon: "📍",
-      title: "Address",
-      details: ["Shamim Hospital", "HMMP+9VF, Main bazar", "Mananwala"],
-    },
-    {
-      icon: "📞",
-      title: "Phone Numbers",
-      details: ["+92 312 4447335", "Emergency: +92 312 4447335"],
-    },
-    {
-      icon: "📧",
-      title: "Email",
-      details: [
-        "info@shamimhospital.com",
-        "appointments@shamimhospital.com",
-        "lab@shamimhospital.com",
-      ],
-    },
-    {
-      icon: "🕒",
-      title: "Working Hours",
-      details: [
-        "Monday - Saturday: 8:00 AM - 8:00 PM",
-        "Sunday: 10:00 AM - 6:00 PM",
-        "Emergency: 24/7",
-      ],
-    },
-  ];
-
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
         <h2 className="section-title">Contact Us</h2>
         <p className="section-subtitle">
-          Get in touch with us for appointments, inquiries, or emergency
-          services. We're here to help you 24/7.
+          Get in touch with us for appointments, inquiries, or any assistance.
+          We're here to help you with your healthcare needs.
         </p>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <h3>Get in Touch</h3>
-            <div className="info-cards">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="info-card">
-                  <div className="info-icon">{info.icon}</div>
-                  <div className="info-content">
-                    <h4>{info.title}</h4>
-                    {info.details.map((detail, idx) => (
-                      <p key={idx}>{detail}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="contact-form-section">
-            {isSubmitted ? (
-              <div className="form-success">
-                <div className="success-icon">✅</div>
-                <h3>Message Sent Successfully!</h3>
-                <p>
-                  Thank you for contacting us. We'll get back to you within 24
-                  hours.
-                </p>
-              </div>
-            ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <h3>Send us a Message</h3>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="name">Full Name *</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Enter your full name"
-                      required
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">Email Address *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="Enter your phone number"
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="subject">Subject *</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="Enter subject"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Message *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Enter your message"
-                    rows="5"
-                    required
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="btn submit-btn">
-                  Send Message
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-
+        {/* MAP SECTION - MOVED TO THE VERY START */}
         <div className="map-section">
           <h3>Find Us on Map</h3>
           <div className="map-container">
@@ -237,6 +105,148 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* CONTACT CONTENT - BELOW MAP */}
+        <div className="contact-content">
+          <div className="contact-info">
+            <h3>Get in Touch</h3>
+            <div className="info-cards">
+              <div className="info-card">
+                <div className="info-icon">📞</div>
+                <div className="info-details">
+                  <h4>Phone</h4>
+                  <p>+92 563 771155</p>
+                  <p>Available 24/7 for emergencies</p>
+                </div>
+              </div>
+
+              <div className="info-card">
+                <div className="info-icon">📧</div>
+                <div className="info-details">
+                  <h4>Email</h4>
+                  <p>info@shamimhospital.com</p>
+                  <p>We'll respond within 24 hours</p>
+                </div>
+              </div>
+
+              <div className="info-card">
+                <div className="info-icon">📍</div>
+                <div className="info-details">
+                  <h4>Address</h4>
+                  <p>Shamim hospital, HMMP+9VF</p>
+                  <p>Main bazar, Mananwala</p>
+                </div>
+              </div>
+
+              <div className="info-card">
+                <div className="info-icon">🕒</div>
+                <div className="info-details">
+                  <h4>Working Hours</h4>
+                  <p>Mon - Sat: 8:00 AM - 10:00 PM</p>
+                  <p>Sunday: 9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="social-links">
+              <h4>Follow Us</h4>
+              <div className="social-icons">
+                <a href="#" className="social-link facebook">
+                  <img src="/facebook.png" alt="Facebook" />
+                </a>
+                <a href="#" className="social-link instagram">
+                  <img src="/instagram.jpeg" alt="Instagram" />
+                </a>
+                <a href="#" className="social-link whatsapp">
+                  <img src="/whatsapp.jpeg" alt="WhatsApp" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-form-container">
+            {isSubmitted ? (
+              <div className="success-message">
+                <div className="success-icon">✅</div>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us. We'll get back to you soon.</p>
+              </div>
+            ) : (
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <h3>Send us a Message</h3>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="name">Full Name *</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email Address *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone Number</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="subject">Subject *</label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Enter subject"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="message">Message *</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Enter your message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" className="btn submit-btn">
+                  📧 Send Message
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

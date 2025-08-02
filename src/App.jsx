@@ -4,8 +4,8 @@ import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import DoctorProfiles from "./components/Doctors/DoctorProfiles";
 import AppointmentBooking from "./components/Appointment/AppointmentBooking";
-import Contact from "./components/Contact/Contact";
 import LabServices from "./components/Lab/LabServices";
+import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import WhatsAppButton from "./components/WhatsApp/WhatsAppButton";
 import "./App.css";
@@ -26,8 +26,8 @@ function App() {
         <Hero />
         <DoctorProfiles />
         <AppointmentBooking />
-        <Contact />
         <LabServices />
+        <Contact />
         <Footer />
         <WhatsAppButton />
       </div>
