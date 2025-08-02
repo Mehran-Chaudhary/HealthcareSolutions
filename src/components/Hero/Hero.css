@@ -216,8 +216,7 @@
   gap: 12px;
   margin-bottom: 10px;
 }
-
-.doctor-avatar {
+g .doctor-avatar {
   width: 40px;
   height: 40px;
   background: var(--primary-gradient);

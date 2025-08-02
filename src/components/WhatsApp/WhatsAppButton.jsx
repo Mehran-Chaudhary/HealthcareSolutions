@@ -2,21 +2,17 @@ import React, { useState, useEffect } from "react";
 import "./WhatsAppButton.css";
 
 const WhatsAppButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
       // Show tooltip after 3 seconds
+      setShowTooltip(true);
+      // Hide tooltip after 5 seconds
       setTimeout(() => {
-        setShowTooltip(true);
-        // Hide tooltip after 5 seconds
-        setTimeout(() => {
-          setShowTooltip(false);
-        }, 5000);
-      }, 3000);
-    }, 2000);
+        setShowTooltip(false);
+      }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -35,7 +31,7 @@ const WhatsAppButton = () => {
 
   return (
     <>
-      <div className={`whatsapp-button ${isVisible ? "visible" : ""}`}>
+      <div className="whatsapp-button">
         <button
           className="whatsapp-btn"
           onClick={handleWhatsAppClick}
