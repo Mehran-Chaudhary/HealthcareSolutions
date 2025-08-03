@@ -410,3 +410,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+//COMMENT ADDED IN THE HERO
