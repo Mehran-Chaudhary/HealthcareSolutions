@@ -31,7 +31,7 @@ function App() {
         <Footer />
       </div>
 
-      {/* WhatsApp button outside main content to ensure it's always visible */}
+      {}
       <WhatsAppButton />
     </div>
   );
